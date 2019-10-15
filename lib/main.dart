@@ -13,7 +13,7 @@ import 'package:petple/main_page.dart';
 //List<CameraDescription> cameras;
 
 Future<Null> main() async {
-  WidgetsFlutterBinding.ensureInitialized();
+  //WidgetsFlutterBinding.ensureInitialized();
  // cameras = await availableCameras();
   runApp(new MyApp());
 }

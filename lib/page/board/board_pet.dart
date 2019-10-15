@@ -74,7 +74,7 @@ class _BoardPetState extends State<BoardPet> {
 
     ListTile makeListTile(Board lesson) => ListTile(
         contentPadding:
-            EdgeInsets.symmetric(horizontal: 20.0, vertical: 45.0),
+            EdgeInsets.symmetric(horizontal: 20.0, vertical: 55.0),
         title: Text(
           lesson.title,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
