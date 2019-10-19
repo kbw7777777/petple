@@ -4,6 +4,8 @@ import 'package:petple/model/board/board_response.dart';
 
 
 class BoardApiProvider {
+  
+  //http://10.0.2.2:8080/board/list
   final String endpoint = "http://localhost:8080/board/list";
   Dio dio;
 

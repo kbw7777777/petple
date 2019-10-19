@@ -39,6 +39,7 @@ class DetailPage extends StatelessWidget {
           lesson.title,
           style: TextStyle(color: Colors.black, fontSize: 45.0),
         ),
+        Text(lesson.modifiedDate.toString(), style: TextStyle(color: Colors.black),),
         SizedBox(height: 30.0),
         
         Row(
@@ -98,7 +99,7 @@ class DetailPage extends StatelessWidget {
 
     final bottomContentText = Text(
       lesson.content,
-      style: TextStyle(fontSize: 18.0),
+      style: TextStyle(fontSize: 80.0),
     );
     final readButton = Container(
         padding: EdgeInsets.symmetric(vertical: 16.0),

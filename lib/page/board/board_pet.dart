@@ -74,7 +74,7 @@ class _BoardPetState extends State<BoardPet> {
 
     ListTile makeListTile(Board lesson) => ListTile(
         contentPadding:
-            EdgeInsets.symmetric(horizontal: 20.0, vertical: 45.0),
+            EdgeInsets.symmetric(horizontal: 20.0, vertical: 55.0),
         title: Text(
           lesson.title,
           style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
@@ -99,24 +99,24 @@ class _BoardPetState extends State<BoardPet> {
         ),
       );
 
-    final makeBody = Container(
-      // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
-      child: ListView.builder(
-      controller: _controller,
-      scrollDirection: Axis.vertical,
-      shrinkWrap: true,
-      itemCount: data.results.length,
-      itemBuilder: (BuildContext context, int index) {
-        return makeCard(data.results[index]);
-      },
-      ),
-    );
+    // final makeBody = Container(
+    //   // decoration: BoxDecoration(color: Color.fromRGBO(58, 66, 86, 1.0)),
+    //   child: ListView.builder(
+    //   controller: _controller,
+    //   scrollDirection: Axis.vertical,
+    //   shrinkWrap: true,
+    //   itemCount: data.results.length,
+    //   itemBuilder: (BuildContext context, int index) {
+    //     return makeCard(data.results[index]);
+    //   },
+    //   ),
+    // );
    
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: makeBody,
+    // return Scaffold(
+    //   backgroundColor: Colors.white,
+    //   body: makeBody,
       
-    );
+    // );
     // return ListView.builder(
     //       itemExtent: 150.0,
     //       padding: const EdgeInsets.all(8),
@@ -138,30 +138,31 @@ class _BoardPetState extends State<BoardPet> {
     //     }
     //   );
 
-    // return CustomScrollView(
-    //   controller: _controller,
+    return CustomScrollView(
+      controller: _controller,
       
-    //   slivers: <Widget>[
+      slivers: <Widget>[
         
-    //     SliverFixedExtentList(
-    //       itemExtent: 150.0,
+        SliverFixedExtentList(
+          itemExtent: 200.0,
           
-    //       delegate: SliverChildBuilderDelegate(
-    //             (BuildContext context, int index) {
-    //               //_controller.animateTo(20, duration: new Duration(seconds: 1), curve: Curves.ease);
-    //           return Container(
-    //             alignment: Alignment.center,
-    //             color: Colors.lightBlue[100 * (index % 9)],
+          delegate: SliverChildBuilderDelegate(
+                (BuildContext context, int index) {
+                  //_controller.animateTo(20, duration: new Duration(seconds: 1), curve: Curves.ease);
+                  print(index);
+              return Container(
+                alignment: Alignment.center,
+                color: Colors.lightBlue[100 * (index % 9)],
                 
-    //             child: Text("${data.results[index].title} ${data.results[index].content}"),
+                child: makeCard(data.results[index]),//Text("${data.results[index].title} ${data.results[index].content}"),
                 
-    //           );
-    //         },
-    //         childCount: 20,
-    //       ),
-    //     ),
-    //   ],
-    // );
+              );
+            },
+            childCount: data.results.length,
+          ),
+        ),
+      ],
+    );
   
   }
 
