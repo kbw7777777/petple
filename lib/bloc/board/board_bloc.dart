@@ -2,21 +2,31 @@ import 'package:petple/model/board/board_response.dart';
 import 'package:petple/repository/board/board_repository.dart';
 import 'package:rxdart/rxdart.dart';
 
-class BoardBloc {
+import '../BaseBlocWidget.dart';
+
+class BoardBloc extends BaseBlocWidget {
+  
   final BoardRepository repository = BoardRepository();
-  final BehaviorSubject<BoardResponse> _subject =
-      BehaviorSubject<BoardResponse>();
+  final _fetcher = new PublishSubject<BoardResponse>();
+
+  streams() => _fetcher.stream;
 
   getBoard(int pageIdx, int pageSize) async {
     BoardResponse response = await repository.getBoard(pageIdx, pageSize);
-    _subject.sink.add(response);
+    try{
+        _fetcher.sink.add(response);
+    }
+    catch(e){
+       _fetcher.sink.addError(e,null);
+    }
+    
   }
 
   dispose() {
-    _subject.close();
+    _fetcher.close();
   }
 
-  BehaviorSubject<BoardResponse> get subject => _subject;
+  
 
 }
-final blocBoard = BoardBloc();
+//final blocBoard = BoardBloc();
