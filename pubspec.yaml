@@ -20,7 +20,7 @@ dependencies:
   flutter:
     sdk: flutter
   
-  dio: 3.0.3  #latest version
+  dio: ">=3.0.3 <6.0.0"  #latest version
   rxdart: ^0.18.0 
   pull_to_refresh: ^1.5.7   
   
